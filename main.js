@@ -1,6 +1,3 @@
-const proxy = 'https://cors-anywhere.herokuapp.com/';
-const baseEndpoint = 'http://www.recipepuppy.com/api/?q=pizza';
+import { fetchData } from './functions.js';
 
-fetch(`${proxy}${baseEndpoint}`)
-.then(resp => resp.json())
-.then(data => console.log(data));
+const results = fetchData('chicken');
