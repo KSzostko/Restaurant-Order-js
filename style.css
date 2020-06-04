@@ -11,4 +11,7 @@ body {
     height: 100vh;
     background: url('https://cdn.hipwallpaper.com/i/41/73/Yj2Sr0.jpg') center no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
