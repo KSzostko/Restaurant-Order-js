@@ -1,3 +1,3 @@
-import { fetchData } from './functions.js';
+import { start } from './functions.js';
 
-const results = fetchData('chicken');
+start();
