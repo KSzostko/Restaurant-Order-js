@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #FFF;
+    height: 100vh;
+    background: url('https://cdn.hipwallpaper.com/i/41/73/Yj2Sr0.jpg') center no-repeat;
+    background-size: cover;
+}
