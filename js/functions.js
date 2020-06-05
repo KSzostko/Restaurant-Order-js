@@ -20,7 +20,10 @@ export function displayData(data) {
         const HTML = `
             <li class="menu__results-item">
                 <img class="menu__results-img" src="${thumbnail}" alt="${title}" />
-                <span class="menu__results-title">${title}</span>
+                <div class="menu__results-data">
+                    <span class="menu__results-title">${title}</span>
+                    <button class="button button--white">Add to order</button>
+                </div>
             </li>
         `;
         searchList.insertAdjacentHTML('beforeend', HTML);

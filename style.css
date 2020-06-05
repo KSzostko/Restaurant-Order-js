@@ -59,8 +59,19 @@ body {
     background-color: #555;
 }
 
+.button--white {
+    background-color: #fff;
+    color: #000;
+    padding: 3px 8px;
+}
+
+.button--white:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 .menu__results-list {
-    margin-top: 10px;
+    margin-top: 20px;
     list-style: none;
 }
 
@@ -68,12 +79,22 @@ body {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    font-weight: 700;
-    font-size: 14px;
 }
 
 .menu__results-img {
     width: 80px;
     border-radius: 50%;
     margin-right: 20px;
+}
+
+.menu__results-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.menu__results-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
