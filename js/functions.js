@@ -12,14 +12,15 @@ export function fetchData(dish) {
 
 export function displayData(data) {
     console.log(data);
+    data = data.filter(el => el.thumbnail != '');
 
     searchList.innerHTML = '';
 
     data.forEach(({ title, thumbnail }) => {
         const HTML = `
-            <li class="order__results-item">
-                <img class="order__results-img" src="${thumbnail}" alt="${title}" />
-                <span class="order__results-title">${title}</span>
+            <li class="menu__results-item">
+                <img class="menu__results-img" src="${thumbnail}" alt="${title}" />
+                <span class="menu__results-title">${title}</span>
             </li>
         `;
         searchList.insertAdjacentHTML('beforeend', HTML);
