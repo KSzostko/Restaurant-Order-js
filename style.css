@@ -34,11 +34,29 @@ body {
     text-transform: uppercase;
 }
 
+.menu__form {
+    display: flex;
+}
+
 .menu__search {
     padding: 5px 10px;
     font-size: 20px;
     text-align: center;
-    width: 100%;
+    flex-basis: 80%;
+}
+
+.button {
+    flex-basis: 20%;
+    background: #fff;
+    background-color: #777;
+    color: #fff;
+    border: 1px solid #000;
+    transition: .25s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #555;
 }
 
 .menu__results-list {
