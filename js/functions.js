@@ -1,4 +1,4 @@
-import { proxy, baseEndpoint, search, searchList } from './elements.js';
+import { proxy, baseEndpoint, search, searchList, form } from './elements.js';
 
 export function fetchData(dish) {
     console.log(dish);
@@ -27,6 +27,12 @@ export function displayData(data) {
     });
 }
 
+function menuSearch(e) {
+    e.preventDefault();
+
+    fetchData(search.value);
+}
+
 export function start() {
-    search.addEventListener('input', e => fetchData(e.target.value));
+    form.addEventListener('submit', menuSearch);
 }
