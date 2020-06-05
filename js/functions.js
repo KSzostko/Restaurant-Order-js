@@ -34,5 +34,6 @@ function menuSearch(e) {
 }
 
 export function start() {
+    form.reset();
     form.addEventListener('submit', menuSearch);
 }
