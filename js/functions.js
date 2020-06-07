@@ -1,6 +1,13 @@
-import { proxy, baseEndpoint, search, searchList, form } from './elements.js';
+import { 
+    proxy, 
+    baseEndpoint, 
+    search, 
+    searchList, 
+    form, 
+    orderList 
+} from './elements.js';
 
-export function fetchData(dish) {
+function fetchData(dish) {
     return fetch(`${proxy}${baseEndpoint}/?q=${dish}`)
         .then(resp => resp.json())
         .then(data => {
@@ -9,7 +16,7 @@ export function fetchData(dish) {
         .catch(err => console.log(err));
 }
 
-export function displayData(data) {
+function displayData(data) {
     data = data.filter(el => el.thumbnail != '');
 
     searchList.innerHTML = '';
@@ -38,9 +45,43 @@ function addToOrder(e) {
     if(e.target.tagName != 'BUTTON') return;
 
     const dishName = e.target.previousElementSibling.textContent;
+    updateOrder(dishName);
+}
+
+function updateOrder(name) {
+    const order = JSON.parse(localStorage.getItem('order')) || [];
+    let elIndex = order.findIndex(el => el.name == name);
+
+    if(elIndex === -1) {
+        const arrLength = order.push({
+            name,
+            amount: 1,
+        });
+        elIndex = arrLength - 1;
+    } else {
+        order[elIndex].amount++;
+    }
+    localStorage.setItem('order', JSON.stringify(order));
+
+    displayOrder();
+}
+
+function displayOrder() {
+    orderList.innerHTML = '';
+    
+    const order = JSON.parse(localStorage.getItem('order'));
+    if(order === null) return;
+
+    order.forEach(({ name, amount }) => {
+        const orderItem = document.createElement('li');
+        orderItem.textContent = `${name} x ${amount}`;
+        orderList.appendChild(orderItem);
+    });
 }
 
 export function start() {
+    displayOrder();
+    
     form.reset();
     form.addEventListener('submit', menuSearch);
     // bubbling
