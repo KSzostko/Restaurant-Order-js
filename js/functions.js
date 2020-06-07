@@ -1,7 +1,6 @@
 import { proxy, baseEndpoint, search, searchList, form } from './elements.js';
 
 export function fetchData(dish) {
-    console.log(dish);
     return fetch(`${proxy}${baseEndpoint}/?q=${dish}`)
         .then(resp => resp.json())
         .then(data => {
@@ -11,7 +10,6 @@ export function fetchData(dish) {
 }
 
 export function displayData(data) {
-    console.log(data);
     data = data.filter(el => el.thumbnail != '');
 
     searchList.innerHTML = '';
@@ -36,7 +34,15 @@ function menuSearch(e) {
     fetchData(search.value);
 }
 
+function addToOrder(e) {
+    if(e.target.tagName != 'BUTTON') return;
+
+    const dishName = e.target.previousElementSibling.textContent;
+}
+
 export function start() {
     form.reset();
     form.addEventListener('submit', menuSearch);
+    // bubbling
+    searchList.addEventListener('click', addToOrder);
 }
