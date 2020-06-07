@@ -4,7 +4,8 @@ import {
     search, 
     searchList, 
     form, 
-    orderList 
+    orderList,
+    orderCount,
 } from './elements.js';
 
 function fetchData(dish) {
@@ -17,10 +18,9 @@ function fetchData(dish) {
 }
 
 function displayData(data) {
-    data = data.filter(el => el.thumbnail != '');
-
     searchList.innerHTML = '';
 
+    data = data.filter(el => el.thumbnail != '');
     data.forEach(({ title, thumbnail }) => {
         const HTML = `
             <li class="menu__results-item">
@@ -75,8 +75,19 @@ function displayOrder() {
     order.forEach(({ name, amount }) => {
         const orderItem = document.createElement('li');
         orderItem.textContent = `${name} x ${amount}`;
+        orderItem.classList.add('order__results-item');
         orderList.appendChild(orderItem);
     });
+
+    countElements();
+}
+
+function countElements() {
+    const order = JSON.parse(localStorage.getItem('order'));
+    if(order === null) return;
+
+    const count = order.reduce((acc, curr) => acc + curr.amount, 0);
+    orderCount.textContent = `Total: ${count}`;
 }
 
 export function start() {
