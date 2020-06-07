@@ -21,7 +21,7 @@ body {
 .menu,
 .order {
     margin: 0 50px;
-    min-width: 600px;
+    min-width: 400px;
     background-color: #FFF;
     padding: 20px;
     box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
