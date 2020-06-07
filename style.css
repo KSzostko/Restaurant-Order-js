@@ -13,7 +13,6 @@ body {
     background-size: cover;
     background-attachment: fixed;
     display: flex;
-    gap: 100px;
     justify-content: center;
     align-items: baseline;
     padding: 10px;
@@ -21,6 +20,7 @@ body {
 
 .menu,
 .order {
+    margin: 0 50px;
     min-width: 600px;
     background-color: #FFF;
     padding: 20px;
